@@ -1,13 +1,7 @@
-global:
-  resolve_timeout: 2m
-
 route:
-  group_by: ['alertname']
-  group_wait: 10s
-  group_interval: 10s
-  repeat_interval: 1h
   receiver: 'webhook'
 receivers:
 - name: 'webhook'
   webhook_configs:
-  - url: 'http://duty-ci.taozeyu.com:3006/prometheus'
+    - send_resolved: true
+      url: 'http://duty-ci.taozeyu.com:3006/prometheus'
