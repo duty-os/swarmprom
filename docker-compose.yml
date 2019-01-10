@@ -99,6 +99,7 @@ services:
       - '--storage.path=/alertmanager'
     volumes:
       - alertmanager:/alertmanager
+      - /root/white-monitor/alertmanager/conf/alertmanager.yml:/etc/alertmanager/alertmanager.yml
     deploy:
       mode: replicated
       replicas: 1
