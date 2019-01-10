@@ -1,8 +1,8 @@
 global:
   resolve_timeout: 2m
   wechat_api_url: 'https://qyapi.weixin.qq.com/cgi-bin/'
-  wechat_api_secret: 'xxx'  # TODO
-  wechat_api_corp_id: 'xxx' # TODO
+  wechat_api_secret: '0LkP8OLiz-iWgTSyDTeMHdbmT0CpYbGuS1tdbJidJ2o'
+  wechat_api_corp_id: 'ww6da1371aed8c474f'
 
 route:
   group_by: ['alertname']
@@ -14,5 +14,5 @@ receivers:
 - name: 'wechat'
   wechat_configs:
   - send_resolved: true
-    to_party: '1'   # TODO
-    agent_id: '1000002'   # TODO
+    to_party: 'CI'
+    agent_id: '1000004'
