@@ -19,8 +19,8 @@ configs:
     file: ./prometheus/rules/swarm_node.rules.yml
   task_rules:
     file: ./prometheus/rules/swarm_task.rules.yml
-  alert_conf:
-    file: ./alertmanager/conf/alertmanager.yml
+#  alert_conf:
+#    file: ./alertmanager/conf/alertmanager.yml
 
 services:
   dockerd-exporter:
@@ -89,7 +89,7 @@ services:
           memory: 64M
 
   alertmanager:
-    image: stefanprodan/swarmprom-alertmanager:v0.14.0
+    image: registry.cn-hangzhou.aliyuncs.com/white/alertmanager:v0.14.0
     networks:
       - net
     environment:
@@ -101,9 +101,9 @@ services:
       - '--storage.path=/alertmanager'
     volumes:
       - alertmanager:/alertmanager
-    configs:
-      - source: alert_conf
-        target: /etc/alertmanager/alertmanager.yml
+#    configs:
+#      - source: alert_conf
+#        target: /etc/alertmanager/alertmanager.yml
     deploy:
       mode: replicated
       replicas: 1
